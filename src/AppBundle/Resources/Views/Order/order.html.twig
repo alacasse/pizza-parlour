@@ -1,0 +1,21 @@
+{# app/Resources/views/Blog/index.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block h1 %}Create Order{% endblock %}
+
+{% block title %}Create Order{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    <h2>Optional Toppings</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.toppingOne) }}</div>
+            <div class="col-md-4">{{ form_row(form.toppingTwo) }}</div>
+            <div class="col-md-4">{{ form_row(form.toppingThree) }}</div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

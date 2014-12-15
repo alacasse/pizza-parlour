@@ -1,0 +1,36 @@
+{# app/Resources/views/Blog/index.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block h1 %}Customers{% endblock %}
+
+{% block title %}Customers{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Orders</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.firstName }}</td>
+                <td>{{ customer.lastName }}</td>
+                <td>{{ customer.address }}</td>
+                <td>{{ customer.phoneNumber }}</td>
+                <td><a href="{{ path('order_list', {'cid': customer.id}) }}">Orders</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

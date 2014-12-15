@@ -1,0 +1,32 @@
+{# app/Resources/views/Blog/index.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% set title = 'Create a customer' %}
+{% if mode == 'edit' %}
+    {% set title = 'Edit customer ' ~  form.vars.value.firstName ~ ' ' ~ form.vars.value.lastName %}
+{% endif %}
+{% block h1 %}{{ title }}{% endblock %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    {% if mode == 'create' %}
+    Search for an existing customer:
+    <div>
+        {{ form_start(searchForm) }}
+        {{ form_errors(searchForm) }}{{ form_widget(searchForm) }}
+        {{ form_end(searchForm) }}
+    </div>
+    or
+    {% endif %}
+
+    <div>
+        {{ form_start(form) }}
+        {{ form_row(form.firstName) }}
+        {{ form_row(form.lastName) }}
+        {{ form_row(form.address) }}
+        {{ form_row(form.phoneNumber) }}
+        {{ form_label(form.save) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

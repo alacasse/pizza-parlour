@@ -1,0 +1,36 @@
+{# app/Resources/views/Blog/index.html.twig #}
+{% extends "AppBundle::home.html.twig" %}
+
+{% block title %}Welcome to Pizza Parlour{% endblock %}
+
+{% block body %}
+    <h1>Pizza Parlour</h1>
+    <h2>Enter your password</h2>
+    {{ form_start(form) }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 password">1</div>
+            <div class="col-xs-4 col-sm-4 password">2</div>
+            <div class="col-xs-4 col-sm-4 password">3</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 password">4</div>
+            <div class="col-xs-4 col-sm-4 password">5</div>
+            <div class="col-xs-4 col-sm-4 password">6</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 password">7</div>
+            <div class="col-xs-4 col-sm-4 password">8</div>
+            <div class="col-xs-4 col-sm-4 password">9</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">&nbsp</div>
+            <div class="col-xs-4 col-sm-4 password">0</div>
+            <div class="col-xs-4 col-sm-4">&nbsp</div>
+        </div>
+    </div>
+
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}

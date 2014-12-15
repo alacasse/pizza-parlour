@@ -1,0 +1,41 @@
+{# app/Resources/views/Blog/index.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block h1 %}Orders{% endblock %}
+
+{% block title %}Orders{% endblock %}
+
+{% block body %}
+
+
+    <div class="row">
+        <div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Topping One</th>
+                    <th>Topping Two</th>
+                    <th>Topping Three</th>
+                    <th>Created</th>
+                    <th>Customer</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.toppingOne }}</td>
+                        <td>{{ order.toppingTwo }}</td>
+                        <td>{{ order.toppingThree }}</td>
+                        <td>{{ order.created|date("Y-m-d") }}</td>
+                        <td>
+                            {% if order.customer %}
+                            <a href="{{ path('customer', {'id': order.customer.id}) }}">{{ order.customer.firstName }} {{ order.customer.lastName }}</a>
+                            {% endif  %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
